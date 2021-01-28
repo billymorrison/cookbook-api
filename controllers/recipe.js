@@ -25,6 +25,15 @@ exports.listByUser = async (req, res) => {
     : res.status(401).json({ error: response.error })
 }
 
+exports.findById = async (req, res) => {
+    const { id } = req.params;
+
+    let response = await helper.find(RecipeModel, id)
+    response.success
+    ? res.status(200).send(response)
+    : res.status(401).json({ error: response.error })
+}
+
 exports.delete = async (req, res) => {
     const { id } = req.params;
 

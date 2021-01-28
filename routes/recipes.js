@@ -9,6 +9,7 @@ const upload = multer({
 })
 
 router.get("/:user", recipeControllers.listByUser);
+router.get("/:user/:id", recipeControllers.findById);
 
 router.route("/")
     .post(upload.single("image"), storeFile, recipeControllers.create)
