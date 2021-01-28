@@ -86,10 +86,29 @@ const updateItem = async (itemType, itemId, itemObject, errorMessage) => {
     return response;
 };
 
+const find = async (itemType, parameters) => {
+    let response = {}
+    try{
+        response = await itemType.findById(parameters)
+        if(response._id) {
+            response.success = true;
+        } else {
+            response.success = false;
+            response.error = "No recipe found for this id"
+        }
+    }
+    catch (err){
+        response.error = err
+        response.success = false
+    }
+    return response;
+}
+
 module.exports = {
     createItem,
     listAll,
     list,
     deleteById,
-    updateItem
+    updateItem,
+    find,
 }
