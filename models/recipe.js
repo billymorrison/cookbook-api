@@ -14,7 +14,8 @@ const RecipeSchema = new mongoose.Schema({
     ingredients: { type: String, required: true },
     method: { type: String, required: true },
     imageUrl: String,
-    userId: { type: String, required: true }
+    userId: { type: String, required: true },
+    userNiceName: { type: String, required: true }
 });
 
 const RecipeModel = mongoose.model('Recipe', RecipeSchema);

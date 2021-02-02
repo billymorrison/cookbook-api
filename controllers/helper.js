@@ -25,7 +25,6 @@ const sendError = (errorMessage, errorObject) => {
 const listAll = async (itemType) => {
     try{
         const response = await itemType.find()
-        console.log(response)
         return {
             data: response,
             success: true

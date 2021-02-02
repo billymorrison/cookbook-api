@@ -13,7 +13,10 @@ router.post("/login", function (req, res) {
                 res.status(401).json({ message: "The username/password is incorrect" });
             } else {
                 user.validatePassword(req.body.password) 
-                ? res.status(200).json(user)
+                ? res.status(200).json({
+                    _id: user._id,
+                    displayName: user.displayName
+                })
                 : res.status(401).json("The username/password is incorrect")
             }
         })
